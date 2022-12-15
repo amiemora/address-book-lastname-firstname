@@ -6,6 +6,7 @@ class CreateAddresses < ActiveRecord::Migration[7.0]
       t.string :town, null: false
       t.integer :zip, null: false
       t.string :state
+      
       # this allows a list of countries to be stored in the database
       t.string :country, array: true
 
