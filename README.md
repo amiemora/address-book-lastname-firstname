@@ -1,6 +1,6 @@
 # Address Book Application
 
-I will be creating an application that utilizes Ruby on Rails that functions as an API that accepts and sends requests via JSON. I will use PostgreSQL as my database connection. Listed below is my requirement for this project and helpful resources I found along the way. I'm always happy to share helpful tools that I find along when learning something new! 
+I will be creating an application that utilizes Ruby on Rails that functions as an API that accepts and sends requests via JSON. I will use PostgreSQL as my database connection. Listed below is my requirements for this project and helpful resources I found along the way. I'm always happy to share helpful tools that I find when learning something new! 
 
 ## Requirements 
 - PSQL
