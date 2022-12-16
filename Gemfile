@@ -74,3 +74,5 @@ end
 gem "cssbundling-rails", "~> 1.1"
 
 gem "jsbundling-rails", "~> 1.1"
+
+gem "ruby-lsp", "~> 0.3.7", :group => :development

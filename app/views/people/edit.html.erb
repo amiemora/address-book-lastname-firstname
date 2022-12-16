@@ -1,0 +1,16 @@
+<h1>Edit Page</h1>
+<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+
+<div>
+    <h2>Edit Person</h2>
+
+    <%= form_for(@person) do |p| %>
+
+        <%= render(partial: 'form', locals: {p: p}) %>
+
+        <div class="form-buttons">
+            <%= p.submit("Edit Task")%>
+        </div>
+
+    <% end %>
+</div>

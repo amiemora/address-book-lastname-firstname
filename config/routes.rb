@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-
-  # ROOT - sets the default page when the application loads 
+  # ROOT - sets the default page when the application loads
   root "main#index"
 
-  get 'main/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get "main/index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :people do
+    member { get :delete }
+  end
+
+  # get 'people/index'
+  # get 'people/show'
+  # get 'people/new'
+  # get 'people/edit'
+  # get 'people/delete'
 end

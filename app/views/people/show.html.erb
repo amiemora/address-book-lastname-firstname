@@ -1,0 +1,43 @@
+<h1>Show Page</h1>
+<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+
+<div>
+    <h2>Show All People</h2>
+
+    <div>
+    <%= link_to('Edit', edit_person_path(@person)) %>
+    <%= link_to('Delete', delete_person_path(@person)) %>
+    </div>
+
+        <table class="table table-striped">
+            <tr>
+            <th>Salutation</th>
+            <td><%= @person.salutation %></td>
+            </tr>
+            <tr>
+            <th>First Name</th>
+            <td><%= @person.first_name %></td>
+            </tr>
+            <tr>
+            <th>Middle Name</th>
+            <td><%= @person.middle_name %></td>
+            </tr>
+            <tr>
+            <th>Last Name</th>
+            <td><%= @person.last_name %></td>
+            </tr>
+            <tr>
+            <th>SSN</th>
+            <td><%= @person.ssn %></td>
+            </tr>
+            <tr>
+            <th>DOB</th>
+            <td><%= @person.dob %></td>
+            </tr>
+            <tr>
+            <th>Comment</th>
+            <td><%= @person.comment %></td>
+            </tr>
+        </table>
+
+</div>
