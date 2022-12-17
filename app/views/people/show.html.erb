@@ -1,12 +1,11 @@
 <h1>Show Page</h1>
-<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+<%= link_to('Back to Person List', {controller: 'people', action: 'index'}) %><br />
 
 <div>
-    <h2>Show All People</h2>
+    <h2><%= @person.first_name  %> <%= @person.last_name %></h2>
 
     <div>
-    <%= link_to('Edit', edit_person_path(@person)) %>
-    <%= link_to('Delete', delete_person_path(@person)) %>
+ 
     </div>
 
         <table class="table table-striped">

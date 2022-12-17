@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @people = Person.find(params[:id])
+    @person = Person.find(params[:id])
   end
 
   def new
@@ -13,10 +13,19 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-    if @person.save
-      redirect_to people_path
-    else
-      render("new")
+
+    respond_to do |format|
+      if @person.save
+        format.html do
+          redirect_to @person, notice: "person was successfully created"
+        end
+        format.json { render :show, status: :created, location: @person }
+      else
+        format.html { render :new }
+        format.json do
+          render json: @person.errors, status: :unprocessable_entity
+        end
+      end
     end
   end
 
@@ -34,12 +43,12 @@ class PeopleController < ApplicationController
   end
 
   def delete
-    @people = Task.find(params[:id])
+    @person = Person.find(params[:id])
   end
 
   def destroy
-    @person = Task.find(params[:id])
-    @people.destroy
+    @person = Person.find(params[:id])
+    @person.destroy
     redirect_to people_path
   end
 
