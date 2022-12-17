@@ -33,6 +33,7 @@ class AddressesController < ApplicationController
   end
 
   def update
+    @address = Address.find(params[:id])
     respond_to do |format|
       if @address.update(address_params)
         format.html do
@@ -53,6 +54,7 @@ class AddressesController < ApplicationController
   end
 
   def destroy
+    @address = Address.find(params[:id])
     @address.destroy
     respond_to do |format|
       format.html do

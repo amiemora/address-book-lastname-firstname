@@ -1,2 +1,16 @@
-<h1>Addresses#new</h1>
-<p>Find me in app/views/addresses/new.html.erb</p>
+
+<h1>New Page</h1>
+<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+
+<div>
+    <h2>Create a Address</h2>
+
+    <%= form_for(@address) do |a| %>
+        <%= render(partial: 'form', locals: {a: a}) %>
+
+        <div>
+            <%= a.submit("Create Address")%>
+        </div>
+
+    <% end %>
+</div>

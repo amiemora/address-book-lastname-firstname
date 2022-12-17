@@ -1,2 +1,16 @@
-<h1>Addresses#edit</h1>
-<p>Find me in app/views/addresses/edit.html.erb</p>
+
+<h1>Edit Page</h1>
+<%= link_to('Back to Address List', {controller: 'addresses', action: 'index'}) %><br />
+
+<div>
+    <h2>Edit Address</h2>
+
+    <%= form_for(@address) do |a| %>
+        <%= render(partial: 'form', locals: {a: a}) %>
+
+        <div class="form-buttons">
+            <%= a.submit("Edit Address")%>
+        </div>
+
+    <% end %>
+</div>

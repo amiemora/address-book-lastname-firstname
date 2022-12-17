@@ -1,2 +1,35 @@
-<h1>Addresses#show</h1>
-<p>Find me in app/views/addresses/show.html.erb</p>
+<h1>Show Page</h1>
+<%= link_to('Back to Address List', {controller: 'addresses', action: 'index'}) %><br />
+
+<div>
+    <h2>Address Info.</h2>
+
+    <div>
+ 
+    </div>
+
+        <table class="table table-striped">
+            <tr>
+            <th>Street</th>
+            <td><%= @address.street %></td>
+            </tr>
+            <tr>
+            <th>Town</th>
+            <td><%= @address.town %></td>
+            </tr>
+            <tr>
+            <th>State</th>
+            <td><%= @address.state %></td>
+            </tr>
+            <tr>
+            <th>Zip</th>
+            <td><%= @address.zip %></td>
+            </tr>
+            <tr>
+            <th>Country</th>
+            <td><%= @address.country %></td>
+            </tr>
+            <tr>
+        </table>
+
+</div>
