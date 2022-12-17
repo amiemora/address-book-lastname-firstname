@@ -15,17 +15,14 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
     respond_to do |format|
       if @address.save
-        format.html do
-          redirect_to @address, notice: "Address was successfully created"
-        end
+        format.html { redirect_to @address, notice: "Address was successfully created" }
         format.json { render :show, status: :created, location: @address }
       else
         format.html { render :new }
-        format.json do
-          render json: @address.errors, status: :unprocessable_entity
+        format.json { render json: @address.errors, status: :unprocessable_entity }
         end
       end
-    end
+      
   end
 
   def edit
@@ -36,19 +33,16 @@ class AddressesController < ApplicationController
     @address = Address.find(params[:id])
     respond_to do |format|
       if @address.update(address_params)
-        format.html do
-          redirect_to @address, notice: "address was successfully updated"
-        end
+        format.html { redirect_to @address, notice: "address was successfully updated" }
         format.json { render :show, status: :created, location: @address }
       else
         format.html { render :edit }
-        format.json do
-          render json: @address.errors, status: :unprocessable_entity
+        format.json { render json: @address.errors, status: :unprocessable_entity }
         end
       end
-    end
   end
 
+  
   def delete
     @address = Address.find(params[:id])
   end
@@ -57,9 +51,7 @@ class AddressesController < ApplicationController
     @address = Address.find(params[:id])
     @address.destroy
     respond_to do |format|
-      format.html do
-        redirect_to addresses_url, notice: "person was successfully deleted"
-      end
+      format.html { redirect_to addresses_url, notice: "person was successfully deleted" }
       format.json { head :no_content }
     end
   end

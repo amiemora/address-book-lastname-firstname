@@ -16,17 +16,13 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        format.html do
-          redirect_to @person, notice: "person was successfully created"
-        end
+        format.html { redirect_to @person, notice: "person was successfully created" }
         format.json { render :show, status: :created, location: @person }
       else
         format.html { render :new }
-        format.json do
-          render json: @person.errors, status: :unprocessable_entity
+        format.json { render json: @person.errors, status: :unprocessable_entity }
         end
       end
-    end
   end
 
   def edit
@@ -34,29 +30,39 @@ class PeopleController < ApplicationController
   end
 
   def update
-    @person = Person.find(params[:id])
-    if @person.update(person_params)
-      redirect_to person_path(@person)
-    else
-      render("edit")
+    respond_to do |format|
+      if @person.update(person_params)
+        format.html { redirect_to @person, notice: 'person was successfully updated' }
+        format.json { render :show, status: :created, location: @person }
+      else
+        format.html { render :edit }
+        format.json { render json: @person.errors, status: :unprocessable_entity }
+      end
     end
   end
-
+  
   def delete
     @person = Person.find(params[:id])
   end
 
   def destroy
-    @person = Person.find(params[:id])
     @person.destroy
-    redirect_to people_path
+    respond_to do |format|
+      format.html { redirect_to people_url, notice: 'person was successfully deleted' }
+      format.json { head :no_content }
+    end
   end
 
   private
-
   def person_params
-    params.require(:person).permit(
-      %i[salutation first_name middle_name last_name ssn dob comment]
-    )
+    params.require(:person).permit([
+      :salutation,
+      :first_name,
+      :middle_name,
+      :last_name,
+      :ssn,
+      :dob,
+      :comment
+    ])
   end
 end
