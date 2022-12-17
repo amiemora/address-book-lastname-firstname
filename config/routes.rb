@@ -12,6 +12,14 @@ Rails.application.routes.draw do
     member { get :delete }
   end
 
+  resources :emails do
+    member { get :delete }
+  end
+
+  resources :phone_numbers do
+    member { get :delete }
+  end
+
   # get 'people/index'
   # get 'people/show'
   # get 'people/new'

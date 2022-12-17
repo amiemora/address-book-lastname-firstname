@@ -1,0 +1,34 @@
+<h1>Index Page</h1>
+
+<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+
+<div>
+    <h2>Phone Numbers</h2>
+
+    <%= link_to("Add New Phone Number", new_phone_number_path, class: 'action new')%>
+    
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Person ID</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Comment</th>
+                </tr>
+            </thead>
+            <% @phone_number.each do |phone_number| %>
+            <tbody>
+                <tr>
+                <th scope="row"><%= phone_number.person_id %></th>
+                <td><%= phone_number.phone_number %></td>
+                <td><%= phone_number.comment%></td>
+                <td>
+                    <%= link_to("Show", phone_number_path(phone_number), class: 'action show')%>
+                    <%= link_to("Edit", edit_phone_number_path(phone_number), class: 'action edit')%>
+                    <%= link_to("Delete", delete_phone_number_path(phone_number), class: 'action delete')%>
+                </td>
+                </tr>
+            </tbody>
+            <% end %>
+        </table>
+    
+</div>
