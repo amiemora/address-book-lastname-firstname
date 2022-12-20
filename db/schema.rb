@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_17_002111) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_20_003900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_002111) do
     t.datetime "updated_at", null: false
     t.bigint "people_id"
     t.string "country"
+    t.integer "user_id"
     t.index ["people_id"], name: "index_addresses_on_people_id"
   end
 
@@ -34,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_002111) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "people_id"
+    t.integer "user_id"
     t.index ["people_id"], name: "index_emails_on_people_id"
   end
 
@@ -47,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_002111) do
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "phone_numbers", force: :cascade do |t|
@@ -56,7 +59,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_002111) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "people_id"
+    t.integer "user_id"
     t.index ["people_id"], name: "index_phone_numbers_on_people_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "addresses", "people"

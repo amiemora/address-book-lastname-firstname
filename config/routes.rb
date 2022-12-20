@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   # ROOT - sets the default page when the application loads
   root "main#index"
+  get "signup" => "users#new"
+  get "login" => "sessions#new"
+  get "logout" => "sessions#destroy"
+  resources :users, except: %i[index new]
 
-  get "main/index"
+  resources :sessions, except: %i[index edit update show new destroy]
 
   resources :people do
     member { get :delete }
@@ -19,10 +23,4 @@ Rails.application.routes.draw do
   resources :phone_numbers do
     member { get :delete }
   end
-
-  # get 'people/index'
-  # get 'people/show'
-  # get 'people/new'
-  # get 'people/edit'
-  # get 'people/delete'
 end

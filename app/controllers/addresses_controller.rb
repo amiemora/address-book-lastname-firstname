@@ -1,6 +1,7 @@
 class AddressesController < ApplicationController
+  before_action :authenticate
   def index
-    @addresses = Address.all
+    @addresses = current_user.addresses.all
   end
 
   def show
@@ -13,16 +14,20 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
+    @address.user = current_user
     respond_to do |format|
       if @address.save
-        format.html { redirect_to @address, notice: "Address was successfully created" }
+        format.html do
+          redirect_to @address, notice: "Address was successfully created"
+        end
         format.json { render :show, status: :created, location: @address }
       else
         format.html { render :new }
-        format.json { render json: @address.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @address.errors, status: :unprocessable_entity
         end
       end
-      
+    end
   end
 
   def edit
@@ -33,16 +38,19 @@ class AddressesController < ApplicationController
     @address = Address.find(params[:id])
     respond_to do |format|
       if @address.update(address_params)
-        format.html { redirect_to @address, notice: "address was successfully updated" }
+        format.html do
+          redirect_to @address, notice: "address was successfully updated"
+        end
         format.json { render :show, status: :created, location: @address }
       else
         format.html { render :edit }
-        format.json { render json: @address.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @address.errors, status: :unprocessable_entity
         end
       end
+    end
   end
 
-  
   def delete
     @address = Address.find(params[:id])
   end
@@ -51,7 +59,9 @@ class AddressesController < ApplicationController
     @address = Address.find(params[:id])
     @address.destroy
     respond_to do |format|
-      format.html { redirect_to addresses_url, notice: "person was successfully deleted" }
+      format.html do
+        redirect_to addresses_url, notice: "person was successfully deleted"
+      end
       format.json { head :no_content }
     end
   end

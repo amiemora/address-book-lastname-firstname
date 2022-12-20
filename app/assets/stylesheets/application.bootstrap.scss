@@ -1,2 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.nav-item, a {
+    text-decoration: none;
+    margin-right: 1.2em;
+}

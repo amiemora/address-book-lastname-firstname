@@ -1,6 +1,7 @@
 class PeopleController < ApplicationController
+  before_action :authenticate
   def index
-    @people = Person.all
+    @people = current_user.people.all
   end
 
   def show
@@ -13,7 +14,7 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-
+    @person.user = current_user
     respond_to do |format|
       if @person.save
         format.html do
@@ -69,7 +70,7 @@ class PeopleController < ApplicationController
 
   def person_params
     params.require(:person).permit(
-      %i[salutation first_name middle_name last_name ssn dob comment]
+      %i[salutation first_name middle_name last_name ssn dob comment user_id]
     )
   end
 end

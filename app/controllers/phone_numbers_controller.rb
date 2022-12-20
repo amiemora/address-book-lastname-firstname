@@ -1,6 +1,7 @@
 class PhoneNumbersController < ApplicationController
+  before_action :authenticate
   def index
-    @phone_number = PhoneNumber.all
+    @phone_number = current_user.phone_numbers.all
   end
 
   def show
@@ -13,7 +14,7 @@ class PhoneNumbersController < ApplicationController
 
   def create
     @phone_number = PhoneNumber.new(phone_number_params)
-
+    @phone_number.user = current_user
     respond_to do |format|
       if @phone_number.save
         format.html do

@@ -1,6 +1,7 @@
 class EmailsController < ApplicationController
+  before_action :authenticate
   def index
-    @email = Email.all
+    @email = current_user.emails.all
   end
 
   def show
@@ -13,7 +14,7 @@ class EmailsController < ApplicationController
 
   def create
     @email = Email.new(email_params)
-
+    @email.user = current_user
     respond_to do |format|
       if @email.save
         format.html do
