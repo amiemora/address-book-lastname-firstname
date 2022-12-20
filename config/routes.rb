@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
+
   resources :users, except: %i[index new]
 
   resources :sessions, except: %i[index edit update show new destroy]
