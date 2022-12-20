@@ -1,0 +1,26 @@
+<h1>Show Page</h1>
+<%= link_to('Back to Email List', {controller: 'emails', action: 'index'}) %><br />
+
+<div>
+    <h2>Email Details</h2>
+    <h4>Person ID corresponds to the Person table</h4>
+    <div>
+ 
+    </div>
+
+        <table class="table table-striped">
+            <tr>
+            <th>Person ID</th>
+            <td><%= @email.person_id %></td>
+            </tr>
+            <tr>
+            <th>First Name</th>
+            <td><%= @email.email_address %></td>
+            </tr>
+            <tr>
+            <th>Middle Name</th>
+            <td><%= @email.comment %></td>
+            </tr>
+        </table>
+
+</div>

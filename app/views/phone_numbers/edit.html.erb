@@ -1,0 +1,17 @@
+<h1>Edit Page</h1>
+<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+
+<div>
+    <h2>Edit Phone Number</h2>
+    <h4>Person ID corresponds to the Person table</h4>
+    <%= form_for(@phone_number) do |p| %>
+        <% # url: phone_number_path(@phone_number), method: 'patch' %>
+        
+        <%= render(partial: 'form', locals: {p: p}) %>
+
+        <div class="form-buttons">
+            <%= p.submit("Edit Phone Number")%>
+        </div>
+
+    <% end %>
+</div>

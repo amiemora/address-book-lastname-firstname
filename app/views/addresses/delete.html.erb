@@ -1,0 +1,16 @@
+
+<h1>Delete Page</h1>
+<%= link_to('Back to Address List', {controller: 'addresses', action: 'index'}) %><br />
+
+<div>
+    <h2>Delete Address</h2>
+
+    <%= form_for(@address, method: 'delete') do |a| %>
+        <% # url: address_path(@address). method: 'delete'%>
+        <p>Are you sure you want to delete this Address permanently? </p>
+        <p><%= @address.street %></p>
+        <div class="form-buttons">
+            <%= a.submit("Delete Address")%>
+        </div>
+    <% end %>
+</div>

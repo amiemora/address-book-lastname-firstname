@@ -1,0 +1,17 @@
+<h1>Delete Page</h1>
+<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+
+<div>
+    <h2>Delete Email</h2>
+
+    <%= form_for(@email, method: 'delete') do |e| %>
+        <% # url: email_path(@email). method: 'delete'%>
+        <p>Are you sure you want to delete this Email permanently? </p>
+        <p><%= @email.email_address %></p>
+
+        <div class="form-buttons">
+            <%= e.submit("Delete Email")%>
+        </div>
+
+    <% end %>
+</div>

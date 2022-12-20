@@ -1,0 +1,26 @@
+<h1>Show Page</h1>
+<%= link_to('Back to Phone Number List', {controller: 'phone_numbers', action: 'index'}) %><br />
+
+<div>
+    <h2>Phone Details</h2>
+    <h4>Person ID corresponds to the Person table</h4>
+    <div>
+ 
+    </div>
+
+        <table class="table table-striped">
+            <tr>
+            <th>Person ID</th>
+            <td><%= @phone_number.person_id %></td>
+            </tr>
+            <tr>
+            <th>Phone Number</th>
+            <td><%= @phone_number.phone_number %></td>
+            </tr>
+            <tr>
+            <th>Comment</th>
+            <td><%= @phone_number.comment %></td>
+            </tr>
+        </table>
+
+</div>
