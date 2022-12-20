@@ -17,6 +17,7 @@ I will be creating an application that utilizes Ruby on Rails that functions as 
 - <a href="https://gist.github.com/startupstella/2520054" target="_blank">Getting Rails on your GitHub Repo</a>
 - <a href="https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-macos" target="_blank">Using rbenv with Rails</a>
 - <a href="https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-macos" target="_blank">Configure Postgreql with your Rails app.</a>
+<a href="https://www.codewithjason.com/rails-integration-tests-rspec-capybara/">Testing in Rails</a>
 
 
 

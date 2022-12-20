@@ -15,16 +15,17 @@ class PeopleTest < ActionDispatch::IntegrationTest
     #Passes test
   end
 
-  # test "Create a new person test" do
-  #   login_user
-  #   visit people_path
-  #   click_on "Add New Person"
+  test "Create a new person" do
+    login_user
+    visit people_path
 
-  #   visit new_person_path
-  #   fill_in "First Name", with: "New Person"
-  #   fill_in "Last Name", with: "Last Name"
-  #   click_button "Create Person"
-
-  #   assert_text "Show Page"
-  # end
+    click_on "Add New Person"
+    visit new_person_path
+    # Had to inspect the page to see the real name of the field
+    # It wansn't "First Name" but rather "person_first_name"
+    fill_in "person_first_name", with: "new person"
+    fill_in "person_last_name", with: "new person"
+    click_button "Create Person"
+    #Passes test
+  end
 end
