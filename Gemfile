@@ -65,6 +65,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  #Added testing gems
+  gem "guard"
+  gem "guard-minitest"
 end
 
 group :test do
@@ -72,6 +75,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  # Added testing gems
+  gem "minitest-reporters"
+  gem "factory_bot_rails"
+  gem "mocha"
 end
 
 gem "cssbundling-rails", "~> 1.1"
