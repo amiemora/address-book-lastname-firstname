@@ -17,5 +17,19 @@ class UsersTest < ActionDispatch::IntegrationTest
 
     assert_text "Logout"
     refute page.has_content?("Login")
+    # Works
+  end
+
+  test "users cant signup with an error" do
+    visit signup_path
+
+    click_on "Sign Up"
+
+    fill_in "Email", with: "testexample.com" #no @ in email
+    fill_in "Password", with: "testpassword"
+    fill_in "Confirm Password", with: "testpassword"
+
+    click_button "Sign Up"
+    #Works
   end
 end

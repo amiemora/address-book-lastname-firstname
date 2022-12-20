@@ -10,6 +10,9 @@ require "minitest/spec"
 require "capybara/rails"
 require "mocha/minitest"
 
+# Need to require any folder inside our support folder
+Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
+
 Minitest::Reporters.use!(
   Minitest::Reporters::ProgressReporter.new(color: true),
   ENV,
@@ -33,4 +36,6 @@ end
 # Need to integrate Capybara with Integration Tests
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
+  include AuthenticationMacros
+  before(:each) { reset_login } # We want to run this mehod before each test
 end
