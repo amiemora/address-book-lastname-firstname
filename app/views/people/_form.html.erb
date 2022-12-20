@@ -1,30 +1,36 @@
-<table class="table table-striped">
-    <tr>
-      <th>Salutation</th>
-      <td><%= p.text_field(:salutation)%></td>
-    </tr>
-    <tr>
-      <th>First Name</th>
-      <td><%= p.text_field(:first_name)%></td>
-    </tr>
-    <tr>
-      <th>Middle Name</th>
-      <td><%= p.text_field(:middle_name)%></td>
-    </tr>
-    <tr>
-      <th>Last Name</th>
-      <td><%= p.text_field(:last_name)%></td>
-    </tr>
-    <tr>
-      <th>SSN</th>
-      <td><%= p.text_field(:ssn)%></td>
-    </tr>
-    <tr>
-      <th>DOB</th>
-      <td><%= p.date_field(:dob)%></td>
-    </tr>
-    <tr>
-      <th>Comment</th>
-      <td><%= p.text_field(:comment)%></td>
-    </tr>
-</table>
+<%= form_with(model: @person, local: false) do |form| %>
+  <div class="modal-body">
+    <div class=form-group>
+      <%= form.label :salutation %>
+      <%= form.text_field :salutation, class: 'form-control' %>
+    </div>
+    <div class=form-group>
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, class: 'form-control' %>
+    </div>
+    <div class=form-group>
+      <%= form.label :middle_name %>
+      <%= form.text_field :middle_name, class: 'form-control' %>
+    </div>
+    <div class=form-group>
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: 'form-control' %>
+    </div>
+    <div class=form-group>
+      <%= form.label :ssn %>
+      <%= form.text_field :ssn, class: 'form-control' %>
+    </div>
+    <div class=form-group>
+      <%= form.label :dob %>
+      <%= form.date_field :dob, class: 'form-control' %>
+    </div>
+    <div class=form-group>
+      <%= form.label :comment %>
+      <%= form.text_field :comment, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <%= form.submit class: "btn btn-primary btn-md" %>
+  </div>
+<% end %>

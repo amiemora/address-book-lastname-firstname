@@ -10,7 +10,8 @@
         <%= render(partial: 'form', locals: {a: a}) %>
 
         <div>
-            <%= a.submit("Create Address")%>
+            <%= javascript_include_tag  'addresses'%>
+            <%= a.submit("Create Address", id: "createAddressButton")%>
         </div>
 
     <% end %>

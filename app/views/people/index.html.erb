@@ -6,7 +6,7 @@
     <h2>People</h2>
     <h4>Use: Person ID to add corresponding Emais,Addresses, & Phone Numbers</h4>
 
-    <%= link_to("Add New Person", new_person_path, class: 'action new')%>
+    <%= link_to "Add New Person", new_person_path, class: 'btn btn-primary btn-lg mb-4', data: { bs_toggle: 'modal', bs_target: '#newUserModal', remote: true } %>
     
         <table class="table table-striped">
             <thead>
@@ -42,6 +42,22 @@
             </tbody>
             <% end %>
         </table>
+
+    
+        <!-- Modal -->
+        <div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newUserModalLabel">Add New Person</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="newUserForm">
+                        <%= render(partial: 'form', remote: true) %>
+                    </div>
+                </div>
+            </div>
+        </div>
     
 </div>
 

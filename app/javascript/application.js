@@ -8,6 +8,7 @@ import jquery from "jquery"
 window.jQuery = jquery
 window.$ = jquery
 
-$(function() {
-    console.log("jquery")
+$('#createAddressButton').on('click', function() {
+    alert('Created Address')
 })
+
