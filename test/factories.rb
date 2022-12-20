@@ -10,6 +10,26 @@ FactoryBot.define do
     f.sequence(:last_name) { |n| "Person#{n}" }
     f.association :user
   end
+
+  factory :address do |f|
+    f.sequence(:street) { |n| "Address#{n}" }
+    f.sequence(:zip) { |n| "Address#{n}" }
+    f.sequence(:town) { |n| "Address#{n}" }
+    f.association :user
+    f.association :person
+  end
+
+  factory :email do |f|
+    f.sequence(:email_address) { |n| "Email#{n}" }
+    f.association :user
+    f.association :person
+  end
+
+  factory :phone_number do |f|
+    f.sequence(:phone_number) { |n| "Phone#{n}" }
+    f.association :user
+    f.association :person
+  end
 end
 
 #allows us to use the model User in order to simulate an existing user

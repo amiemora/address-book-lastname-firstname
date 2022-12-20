@@ -15,7 +15,7 @@ class SessionsTest < ActionDispatch::IntegrationTest
     assert_equal page.current_path, root_path
     assert_text "Logout"
     refute page.has_content?("Login")
-    # Works
+    #Passes test
   end
 
   test "users can't login with incorrect password" do
@@ -28,7 +28,7 @@ class SessionsTest < ActionDispatch::IntegrationTest
     click_button "Login"
 
     visit login_path
-    #Works
+    #Passes test
   end
 
   test "users can logout" do
@@ -40,6 +40,6 @@ class SessionsTest < ActionDispatch::IntegrationTest
     click_on "Logout"
 
     refute page.has_content?("Logout")
-    #Works
+    #Passes test
   end
 end

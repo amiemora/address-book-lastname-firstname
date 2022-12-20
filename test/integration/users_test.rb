@@ -17,7 +17,7 @@ class UsersTest < ActionDispatch::IntegrationTest
 
     assert_text "Logout"
     refute page.has_content?("Login")
-    # Works
+    #Passes test
   end
 
   test "users cant signup with an error" do
@@ -30,6 +30,6 @@ class UsersTest < ActionDispatch::IntegrationTest
     fill_in "Confirm Password", with: "testpassword"
 
     click_button "Sign Up"
-    #Works
+    #Passes test
   end
 end

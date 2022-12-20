@@ -12,6 +12,19 @@ class PeopleTest < ActionDispatch::IntegrationTest
     assert_text person1.first_name
     assert_text person2.first_name
     refute page.has_content?(person3.first_name)
-    #Works
+    #Passes test
   end
+
+  # test "Create a new person test" do
+  #   login_user
+  #   visit people_path
+  #   click_on "Add New Person"
+
+  #   visit new_person_path
+  #   fill_in "First Name", with: "New Person"
+  #   fill_in "Last Name", with: "Last Name"
+  #   click_button "Create Person"
+
+  #   assert_text "Show Page"
+  # end
 end
