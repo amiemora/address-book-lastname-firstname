@@ -1,7 +1,26 @@
 require "test_helper"
 
 class EmailTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "has a valid factory" do
+    email = FactoryBot.build :email
+
+    assert email.valid?
+    #Passes test
+  end
+
+  test "requires a user" do
+    email = FactoryBot.build :email
+    email.user = nil
+
+    refute email.valid?
+    #Passes test
+  end
+
+  test "require an email" do
+    email = FactoryBot.build :email
+    email.email_address = ""
+
+    refute email.valid?
+    #Passes test
+  end
 end
