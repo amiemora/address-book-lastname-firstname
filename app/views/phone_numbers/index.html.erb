@@ -1,11 +1,11 @@
 <h1>Index Page</h1>
 
-<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+<%= link_to('Back to Home', root_path, class: "btn btn-primary") %><br />
 
 <div>
     <h2>Phone Numbers</h2>
 
-    <%= link_to("Add New Phone Number", new_phone_number_path, class: 'action new')%>
+    <%= link_to("Add New Phone Number", new_phone_number_path, class: 'action new btn btn-primary')%>
     
         <table class="table table-striped">
             <thead>

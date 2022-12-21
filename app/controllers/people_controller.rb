@@ -17,11 +17,13 @@ class PeopleController < ApplicationController
     @person.user = current_user
     respond_to do |format|
       if @person.save
+        format.js
         format.html do
           redirect_to @person, notice: "person was successfully created"
         end
         format.json { render :show, status: :created, location: @person }
       else
+        format.js
         format.html { render :new }
         format.json do
           render json: @person.errors, status: :unprocessable_entity

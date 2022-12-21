@@ -1,0 +1,5 @@
+<% if @person.errors.any? %> 
+    alert('Invalid Details');
+<% else %>
+    $("#peopleTable").html("<%= escape_javascript render('person_row', person: @person)%>");
+<% end %>

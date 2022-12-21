@@ -1,5 +1,5 @@
 <h1>Delete Page</h1>
-<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+<%= link_to('Back to Phone Number List', phone_numbers_path, class: "btn btn-primary") %><br />
 
 <div>
     <h2>Delete Phone Number</h2>
@@ -10,7 +10,7 @@
         <p><%= @phone_number.phone_number %></p>
 
         <div class="form-buttons">
-            <%= p.submit("Delete phone number")%>
+            <%= p.submit("Delete phone number", class: "btn btn-primary")%>
         </div>
 
     <% end %>

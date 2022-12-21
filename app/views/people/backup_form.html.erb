@@ -1,0 +1,50 @@
+
+<%= form_with(model: @person, local: false) do |form| %>
+  <div class="modal-body">
+    <div class="form-group">
+      <%= form.label :salutation %>
+      <%= form.text_field :salutation, class: 'form-control' %>
+    </div>
+    <div class="form-group mt-3">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, class: 'form-control' %>
+    </div>
+    <div class="form-group mt-3">
+      <%= form.label :middle_name %>
+      <%= form.text_field :middle_name, class: 'form-control' %>
+    </div>
+    <div class="form-group mt-3">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: 'form-control' %>
+    </div>
+    <div class="form-group mt-3">
+      <%= form.label :ssn %>
+      <%= form.text_field :ssn, class: 'form-control' %>
+    </div>
+    <div class="form-group mt-3">
+      <%= form.label :dob %>
+      <%= form.date_field :dob, class: 'form-control' %>
+    </div>
+    <div class="form-group mt-3">
+      <%= form.label :comment %>
+      <%= form.text_field :comment, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <%= form.submit "Create Person", class: "btn btn-primary btn-md"%> 
+  </div>
+<% end %>
+
+
+           <%= form_for(@person, remote: true) do |p| %>
+        <div class="modal-body">
+            <%= render(partial: 'form', locals: {p: p}) %>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= p.submit("Create Person")%>
+        </div>
+
+    <% end %>

@@ -1,6 +1,6 @@
 
 <h1>Edit Page</h1>
-<%= link_to('Back to Address List', {controller: 'addresses', action: 'index'}) %><br />
+<%= link_to('Back to Address List', addresses_path, class: "btn btn-primary") %><br />
 
 <div>
     <h2>Edit Address</h2>
@@ -9,7 +9,7 @@
         <%= render(partial: 'form', locals: {a: a}) %>
 
         <div class="form-buttons">
-            <%= a.submit("Edit Address")%>
+            <%= a.submit("Edit Address", class: "btn btn-primary")%>
         </div>
 
     <% end %>

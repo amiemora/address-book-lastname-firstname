@@ -1,5 +1,5 @@
 <h1>Edit Page</h1>
-<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+<%= link_to('Back to Person List', people_path, class: "btn btn-primary") %><br />
 
 <div>
     <h2>Edit Person</h2>
@@ -10,7 +10,7 @@
         <%= render(partial: 'form', locals: {p: p}) %>
 
         <div class="form-buttons">
-            <%= p.submit("Edit Task")%>
+            <%= p.submit("Edit Task", class: "btn btn-primary btn-md")%>
         </div>
 
     <% end %>

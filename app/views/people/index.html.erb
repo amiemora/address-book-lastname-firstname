@@ -1,12 +1,12 @@
 <h1>Index Page</h1>
 
-<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+<%= link_to('Back to Home', root_path, class: "btn btn-primary") %><br /><br />
 
 <div>
     <h2>People</h2>
     <h4>Use: Person ID to add corresponding Emais,Addresses, & Phone Numbers</h4>
 
-    <%= link_to "Add New Person", new_person_path, class: 'btn btn-primary btn-lg mb-4', data: { bs_toggle: 'modal', bs_target: '#newUserModal', remote: true } %>
+    <%= link_to("Add New Person", new_person_path, class: 'action new btn btn-primary')%>
     
         <table class="table table-striped">
             <thead>
@@ -22,42 +22,11 @@
                 </tr>
             </thead>
             <% @people.each do |person| %>
-            <tbody>
-                <tr>
-                
-                <th scope="row"><%= person.id%></th>
-                <td><%= person.salutation %></td>
-                <td><%= person.first_name %></td>
-                <td><%= person.middle_name%></td>
-                <td><%= person.last_name%></td>
-                <td><%= person.ssn%></td>
-                <td><%= person.dob%></td>
-                <td><%= person.comment%></td>
-                <td>
-                    <%= link_to("Show", person_path(person), class: 'action show')%>
-                    <%= link_to("Edit", edit_person_path(person), class: 'action edit')%>
-                    <%= link_to("Delete", delete_person_path(person), class: 'action delete')%>
-                </td>
-                </tr>
-            </tbody>
+                <%= render 'person_row', person: person %>
             <% end %>
         </table>
 
     
-        <!-- Modal -->
-        <div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="newUserModalLabel">Add New Person</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div id="newUserForm">
-                        <%= render(partial: 'form', remote: true) %>
-                    </div>
-                </div>
-            </div>
-        </div>
     
 </div>
 

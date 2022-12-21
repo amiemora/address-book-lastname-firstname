@@ -1,0 +1,18 @@
+<tbody id="peopleTable">
+    <tr id="personRow_<%= person.id %>">
+                
+        <th scope="row"><%= person.id%></th>
+        <td><%= person.salutation %></td> 
+        <td><%= person.first_name %></td>
+        <td><%= person.middle_name%></td>
+        <td><%= person.last_name%></td>
+        <td><%= person.ssn%></td>
+        <td><%= person.dob%></td>
+        <td><%= person.comment%></td>
+        <td>
+            <%= link_to("Show", person_path(person), class: 'action show')%>
+            <%= link_to("Edit", edit_person_path(person), class: 'action edit')%>
+            <%= link_to("Delete", delete_person_path(person), class: 'action delete')%>
+        </td>
+    </tr>
+</tbody>

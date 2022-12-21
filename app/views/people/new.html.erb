@@ -1,8 +1,15 @@
 <h1>New Page</h1>
-<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+<%= link_to('Back to Home', root_path, class: "btn btn-primary") %><br />
 
 <div>
     <h2>Create a Person</h2>
 
-    
+    <%= form_for [@person], {remote:true} do |p| %>
+        <%= render(partial: 'form', locals: {p: p}) %>
+
+        <div>
+            <%= p.submit("Create Person", class: "btn btn-primary")%>
+        </div>
+
+    <% end %>
 </div>

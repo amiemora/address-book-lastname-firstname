@@ -1,6 +1,6 @@
 
 <h1>New Page</h1>
-<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+<%= link_to('Back to Home', root_path, class: "btn btn-primary") %><br />
 
 <div>
     <h2>Create a Address</h2>
@@ -10,8 +10,7 @@
         <%= render(partial: 'form', locals: {a: a}) %>
 
         <div>
-            <%= javascript_include_tag  'addresses'%>
-            <%= a.submit("Create Address", id: "createAddressButton")%>
+            <%= a.submit("Create Address", id: "createAddressButton", class: "btn btn-primary")%>
         </div>
 
     <% end %>

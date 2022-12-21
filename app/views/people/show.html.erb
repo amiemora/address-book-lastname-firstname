@@ -1,5 +1,5 @@
 <h1>Show Page</h1>
-<%= link_to('Back to Person List', {controller: 'people', action: 'index'}) %><br />
+<%= link_to('Back to Person List', people_path, class: "btn btn-primary") %><br />
 
 <div>
     <h2><%= @person.first_name  %> <%= @person.last_name %></h2>
