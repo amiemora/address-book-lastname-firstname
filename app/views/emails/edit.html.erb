@@ -1,0 +1,17 @@
+<h1>Edit Page</h1>
+<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+
+<div>
+    <h2>Edit Email</h2>
+    <h4>Person ID corresponds to the Person table</h4>
+    <%= form_for(@email) do |e| %>
+        <% # url: email_path(@email), method: 'patch' %>
+        
+        <%= render(partial: 'form', locals: {e: e}) %>
+
+        <div class="form-buttons">
+            <%= e.submit("Edit Email")%>
+        </div>
+
+    <% end %>
+</div>

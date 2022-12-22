@@ -1,0 +1,34 @@
+<h1>Index Page</h1>
+
+<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+
+<div>
+    <h2>Email</h2>
+
+    <%= link_to("Add New Email", new_email_path, class: 'action new')%>
+    
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Email</th>
+                    <th scope="col">Comment</th>
+                </tr>
+            </thead>
+            <% @email.each do |email| %>
+            <tbody>
+                <tr>
+                
+                <td><%= email.email_address %></td>
+                <td><%= email.comment%></td>
+                <td>
+                    <%= link_to("Show", email_path(email), class: 'action show')%>
+                    <%= link_to("Edit", edit_email_path(email), class: 'action edit')%>
+                    <%= link_to("Delete", delete_email_path(email), class: 'action delete')%>
+                </td>
+                </tr>
+            </tbody>
+            <% end %>
+        </table>
+    
+</div>

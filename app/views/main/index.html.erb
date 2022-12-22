@@ -1,2 +1,54 @@
-<h1>Home Page</h1>
-<p>This is the home page.</p>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+          <a class="navbar-brand" <%= link_to 'Address Book', root_path%>>Address Book</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" <%= link_to 'Person', people_path %>>Home</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link active" aria-current="page" <%= link_to 'Address', addresses_path %>>Home</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link active" aria-current="page" <%= link_to 'Email', emails_path %>>Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page"  <%= link_to 'Phone', phone_numbers_path %>>Home</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-md-0">
+                <% if current_user %>
+                    <%= link_to current_user.email, user_path(current_user) %>
+                    <a class="nav-link active" aria-current="page" <%= link_to 'Logout', logout_path %>>Home</a>
+                 <% else %>
+                    <a class="nav-link active" aria-current="page" <%= link_to 'Login', login_path %>>Home</a>
+                    <a class="nav-link active" aria-current="page" <%= link_to 'Sign Up', signup_path %>>Home</a>
+                <% end %>
+            </ul>
+          </div>
+       </div>
+    </nav>
+
+    <body>
+        <div class="container-fluid">
+          <h4>Must be Logged into your account to view your Address Book Details Above.</h4>
+          <h6>Steps: <br />
+          1. Create a Person <br />
+          2. Copy Person ID from Person table <br />
+          3. Add Corresponding Details to the Created Person.<br />
+          4. Must use Person ID to connect the corresponding Person to their Address,Email, & Phone.</h6>
+        </div>
+
+       
+    </body>
+
+    
+    
+    
+   
+                 
+   
+   

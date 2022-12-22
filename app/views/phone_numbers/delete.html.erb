@@ -1,0 +1,17 @@
+<h1>Delete Page</h1>
+<%= link_to('Back to Home', {controller: 'main', action: 'index'}) %><br />
+
+<div>
+    <h2>Delete Phone Number</h2>
+
+    <%= form_for(@phone_number, method: 'delete') do |p| %>
+        <% # url: person_path(@phone_number). method: 'delete'%>
+        <p>Are you sure you want to delete this phone number permanently? </p>
+        <p><%= @phone_number.phone_number %></p>
+
+        <div class="form-buttons">
+            <%= p.submit("Delete phone number")%>
+        </div>
+
+    <% end %>
+</div>
